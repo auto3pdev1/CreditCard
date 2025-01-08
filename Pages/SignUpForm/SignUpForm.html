@@ -1,0 +1,66 @@
+﻿<form>
+    <link href="Pages/SignUpForm/SignUpForm.css" rel="stylesheet" />
+    <div class="box sign-up-box">
+        <h2>Create a new account</h2>
+        <div class="row">
+            <div class="data-col">
+                <input type="text" id="newUserFirstNameInput" placeholder="First name" />
+            </div>
+            <div class="data-col">
+                <input type="text" id="newUserLastNameInput" placeholder="Last name" />
+            </div>
+        </div>
+        <input type="text" id="newUserEmailInput" placeholder="Email" />
+        <input type="password" id="newUserPasswordInput" placeholder="New password" />
+        <div class="row">
+            <label for="newUserBirthday">Birthday</label>
+            <div class="data-col">
+                <input type="date" id="newUserBirthdayInput" />
+            </div>
+        </div>
+        <div class="row">
+            <label>Credit card type</label>
+            <div class="data-col">
+                <select id="newUserCreditCardTypeSelect"></select>
+            </div>
+        </div>
+        <div class="row">
+            <label for="newUserCreditCardNumberInput">Credit card number</label>
+            <div class="data-col">
+                <input type="text" id="newUserCreditCardNumberInput" maxlength="19"
+                       oninput="formatCreditCardNumber(this)"
+                       placeholder="**** **** **** ****" />
+            </div>
+        </div>
+        <div class="row">
+            <label>Expiration date</label>
+            <div class="data-col-multi">
+                <select id="newUserExpirationMonthSelect"></select>
+                <select id="newUserExpirationYearSelect"></select>
+            </div>
+        </div>
+        <div class="row">
+            <label>Monthly billing date</label>
+            <div class="data-col">
+                <select id="newUserBillingDateSelect"></select>
+            </div>
+        </div>
+        <div class="row">
+            <label>Credit limit</label>
+            <div class="data-col-multi">
+                <input type="range" id="newUserCreditLimitInput" min="5000" max="20000" step="1000" value="7500" oninput="setCreditLimitSpan(this)" />
+                <span id="newUserCreditLimitSpan">$7,500.00</span>
+            </div>
+        </div>
+        <div class="row">
+            <label>Credit card status</label>
+            <div class="data-col">
+                <select id="newUserCreditCardStatusSelect"></select>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn-secondary" onclick="backToLoginPage()">Cancel</button>
+            <button type="button" class="btn-primary" onclick="signUpUser()">Create account</button>
+        </div>
+    </div>
+</form>

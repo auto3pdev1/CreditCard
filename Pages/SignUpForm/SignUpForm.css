@@ -1,0 +1,30 @@
+﻿.sign-up-box {
+    width: 600px;
+    gap: 16px;
+}
+
+    .sign-up-box .row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 5px;
+    }
+
+        .sign-up-box .row label {
+            width: 50%;
+        }
+
+        .sign-up-box .row .data-col {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+        }
+
+        .sign-up-box .row .data-col-multi {
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5px;
+        }

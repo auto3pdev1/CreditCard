@@ -1,0 +1,10 @@
+﻿.login-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+    .login-layout h1 {
+        font-size: 40px;
+    }
