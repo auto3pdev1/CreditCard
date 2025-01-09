@@ -8,10 +8,17 @@
 
 nav {
     grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000C68;
+    height: 100%;
 }
 
 main {
     grid-area: main;
+    padding: 0 20px;
 }
 
 footer {
@@ -29,49 +36,29 @@ footer {
 }
 
     .header-container .title {
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: flex-start;
         padding: 0 20px;
+        width: 70%;
     }
-    .header-container .user {
-        width: 100%;
-        display: flex;        
+    .header-container .date {
+        display: flex;
         align-items: center;
         justify-content: flex-end;
+        font-size: 12px;
+        font-weight: 400;
         padding: 10px 20px;
+        width: 30%;
     }
-    .header-container .user-info {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-    }
-        .header-container .user-info .user-name {
-            font-size: 14px;
-            font-weight: 600;
-        }
-        .header-container .user-info .user-date {
-            font-size: 12px;
-            font-weight: 400;
-        }
-        .header-container .user-info .user-log-out {
-            font-size: 14px;
-            font-weight: 400;
-            cursor: pointer;
-        }
-        .header-container .user-info .user-log-out:hover {
-            text-decoration: underline;
-        }
 
 .main-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    background-color: #000C68;
-    height: 100%;
-    border-radius: 8px;
+    width: 100%;
+    padding-top: 20px;
 }
 
     .main-menu > a {
@@ -87,7 +74,6 @@ footer {
         height: 80px;
         font-size: 12px;
         font-weight: 600;
-        margin: 10px;
         cursor: pointer;
     }
         .main-menu > a:hover:not(.active) {
@@ -98,6 +84,31 @@ footer {
         {
             background-color: #1B30F5;
         }
+
+.user-menu{
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+    align-items: center;
+    color: white;
+    width: 100%;
+    padding-bottom: 20px;
+}
+    .user-menu .user-name {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .user-menu .user-log-out {
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+        .user-menu .user-log-out:hover {
+            text-decoration: underline;
+        }
+
+
 
 
 /* Desktop */
@@ -121,13 +132,16 @@ footer {
         grid-template-rows: 100px 60px 1fr 50px;
         grid-template-columns: 1fr;
         grid-template-areas:
-            "header"
             "nav"
+            "header"
             "main"
             "footer";
         height: calc(100vh);
     }
 
+    nav {
+        flex-direction: row;
+    }
 
     .main-menu {
         flex-direction: row;
@@ -143,11 +157,22 @@ footer {
             align-items: center;
             justify-content: center;
             gap: 5px;
-            width: 6rem;
-            height: 3rem;
-            font-size: 14px;
-            font-weight: 600;
+            width: 120px;
         }
+
+    .user-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: auto;
+        justify-content: center;
+    }
+
+    main {
+        grid-area: main;
+        padding: 20px 20px;
+    }
+
+
 }
 
 /* Mobile phone*/
@@ -157,11 +182,15 @@ footer {
         grid-template-rows: 100px 60px 1fr 50px;
         grid-template-columns: 1fr;
         grid-template-areas:
-            "header"
             "nav"
+            "header"
             "main"
             "footer";
         height: calc(100vh);
+    }
+
+    nav {
+        flex-direction: row;
     }
 
     .main-menu {
@@ -177,15 +206,33 @@ footer {
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            width: 4rem;
-            height: 3rem;
-            font-size: 14px;
-            font-weight: 600;
+            gap: 0;
+            width: 80px;
         }
-
             .main-menu > a > i {
                 display: none;
             }
+
+
+    .user-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: auto;
+        justify-content: center;
+    }
+
+        .user-menu .user-name {
+            font-size: 11px;
+        }
+
+        .user-menu .user-log-out {
+            font-size: 11px;
+        }
+
+    main {
+        grid-area: main;
+        padding: 20px 20px;
+    }
   
 }
 
