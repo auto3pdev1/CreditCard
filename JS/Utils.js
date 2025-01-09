@@ -1,4 +1,19 @@
-﻿function showElement(elem) {
+﻿function getElement(id) {
+    return document.getElementById(id);
+}
+
+function addClass(elem, className) {
+    elem.classList.add(className);
+}
+
+function removeClass(elem, className) {
+    elem.classList.remove(className);
+}
+function hasClass(elem, className) {
+    return elem.classList.contains(className);
+}
+
+function showElement(elem) {
     elem.style.display = 'flex';
 }
 function hideElement(elem) {
@@ -123,6 +138,10 @@ function formatCurrency(amount, locale = "en-US", currency = "USD") {
     }).format(amount);
 }
 
+function formatDate(date, locale = "en-US") {
+    return new Date(date).toLocaleString(locale);
+}
+
 // Padding to 2 digits with a zero char if the length is less than 2 chars
 function padToTwoDigits(number) {
     return String(number).padStart(2, "0");
@@ -142,16 +161,25 @@ function delLocalStroage(key) {
 }
 
 
-let pageVer = 1;// Ignore browser cache
-function loadHtmlPage(pageURL, containerId, callbackFunc) {
-    fetch('pages/' + pageURL + '.html?ver=' + pageVer++)
+let fetchVer = 1;// Ignore browser cache
+function fetchUrl(url, containerId, callbackFunc) {
+    fetch(url + '?ver=' + fetchVer++)
         .then(response => response.text())
         .then(data => {
             document.getElementById(containerId).innerHTML = data;
             if (callbackFunc)
                 callbackFunc();
         })
-        .catch(error => console.error('Error loading page:' + pageURL, error));
-
+        .catch(error => console.error('Error loading:' + url, error));
 }
+
+
+function loadHtmlPage(pageURL, containerId, callbackFunc) {
+    fetchUrl('Pages/' + pageURL + '.html', containerId, callbackFunc);
+}
+
+function loadComponent(componentURL, containerId, callbackFunc) {
+    fetchUrl('Components/' + componentURL + '.html', containerId, callbackFunc);
+}
+
 

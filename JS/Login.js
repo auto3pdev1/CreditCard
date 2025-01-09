@@ -4,6 +4,12 @@ const LOGIN_PAGE = 1;
 const SIGN_UP_PAGE = 2;
 const RESET_PAGE = 3;
 
+// init login page - first loaded
+document.addEventListener('DOMContentLoaded', function () {
+    showLoginPage(LOGIN_PAGE);
+});
+
+
 function showLoginPage(page, callbackFunc) {
     switch (page) {
         case LOGIN_PAGE:
@@ -54,6 +60,7 @@ function loadSignUpPage() {
         CREDIT_CARD_STATUSES.forEach((item) => {
             addSelectOption(newUserCreditCardStatusSelect, item.value, item.text);
         });
+        newUserCreditCardStatusSelect.value = 1;// Default value - active in new card
     });
 }
 
